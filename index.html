@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Icônica Moda Fitness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Kaushan+Script&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --tiffany:#0ABAB5;
+    --tiffany-dark:#087f7b;
+    --tiffany-deep:#045C59;
+    --tiffany-tint:#EAFBFA;
+    --tiffany-tint-2:#D8F5F3;
+    --ink:#14171A;
+    --ink-soft:#3A3E42;
+    --muted:#767B7F;
+    --line:#E6E4DD;
+    --paper:#FAF9F6;
+    --white:#FFFFFF;
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Manrope', -apple-system, sans-serif;
+    --script:'Kaushan Script', cursive;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:var(--sans);
+    background:var(--paper);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+  /* ---------- utility bar ---------- */
+  .utility-bar{
+    background:var(--ink);
+    color:var(--tiffany-tint);
+    font-size:12.5px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    text-align:center;
+    padding:9px 16px;
+  }
+  .utility-bar strong{color:var(--tiffany);font-weight:700;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,249,246,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 32px;
+    max-width:1180px;margin:0 auto;
+  }
+  .logo{
+    font-family:var(--serif);
+    font-size:24px;
+    font-weight:600;
+    letter-spacing:.03em;
+  }
+  .logo em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--tiffany-deep);
+  }
+  .nav-links{display:flex;gap:36px;font-size:14.5px;font-weight:600;}
+  .nav-links a{position:relative;padding-bottom:4px;}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:2px;
+    background:var(--tiffany);transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    display:flex;align-items:center;gap:8px;
+    background:var(--ink);color:var(--white);
+    padding:11px 20px;border-radius:999px;
+    font-size:14px;font-weight:700;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--tiffany-deep);}
+  .burger{display:none;font-size:26px;background:none;border:none;cursor:pointer;color:var(--ink);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    display:grid;grid-template-columns:1.05fr .95fr;
+    align-items:center;gap:56px;
+    padding:76px 32px 90px;
+    max-width:1180px;margin:0 auto;
+  }
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--tiffany-deep);
+    background:var(--tiffany-tint);
+    padding:7px 14px;border-radius:999px;
+    margin-bottom:22px;
+  }
+  .hero-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--tiffany);}
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:56px;
+    line-height:1.04;
+    letter-spacing:-.01em;
+    margin-bottom:24px;
+  }
+  .hero h1 em{
+    font-family:var(--script);
+    font-style:normal;font-weight:400;
+    color:var(--tiffany-deep);
+    display:block;
+    font-size:0.85em;
+    line-height:1.3;
+    margin-top:6px;
+  }
+  .hero p{
+    font-size:17px;line-height:1.65;color:var(--ink-soft);
+    max-width:440px;margin-bottom:36px;
+  }
+  .hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--ink);color:var(--white);
+    padding:16px 30px;border-radius:999px;
+    font-size:15px;font-weight:700;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .btn-primary:hover{background:var(--tiffany-deep);transform:translateY(-1px);}
+  .btn-ghost{
+    display:flex;align-items:center;gap:10px;
+    font-size:15px;font-weight:700;color:var(--ink);
+    border-bottom:2px solid var(--ink);padding-bottom:3px;
+  }
+
+  .hero-visual{position:relative;aspect-ratio:4/5;}
+  .hero-visual .cut{
+    position:absolute;inset:0;
+    background:var(--tiffany);
+    border-radius:28px;
+    transform:rotate(-3deg) scale(.96);
+  }
+  .hero-visual .frame{
+    position:absolute;inset:0;
+    border-radius:28px;
+    background:linear-gradient(160deg,var(--tiffany-tint) 0%,var(--white) 60%);
+    border:1px solid var(--tiffany-tint-2);
+    display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:10px;
+    overflow:hidden;
+  }
+  .frame .ph-label{
+    font-family:var(--serif);font-style:italic;font-size:20px;color:var(--tiffany-deep);
+  }
+  .frame .ph-sub{font-size:12.5px;color:var(--muted);text-align:center;padding:0 40px;}
+  .frame .ph-icon{
+    width:64px;height:64px;border-radius:50%;
+    background:var(--tiffany-tint);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--tiffany-deep);font-size:26px;font-weight:700;font-family:var(--serif);
+  }
+  .badge-float{
+    position:absolute;bottom:22px;left:22px;
+    background:var(--white);border-radius:16px;
+    padding:14px 18px;
+    box-shadow:0 14px 30px rgba(20,23,26,.12);
+    display:flex;align-items:center;gap:12px;
+  }
+  .badge-float .dot{width:10px;height:10px;border-radius:50%;background:var(--tiffany);flex:none;}
+  .badge-float .t1{font-size:13px;font-weight:700;}
+  .badge-float .t2{font-size:12px;color:var(--muted);}
+
+  /* ---------- marquee ---------- */
+  .marquee-band{
+    background:var(--ink);color:var(--tiffany-tint);
+    padding:16px 0;overflow:hidden;white-space:nowrap;
+  }
+  .marquee-track{display:inline-block;animation:scroll 26s linear infinite;}
+  .marquee-track span{
+    font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    margin:0 28px;display:inline-flex;align-items:center;gap:28px;
+  }
+  .marquee-track span::after{content:"✦";color:var(--tiffany);font-size:11px;}
+  @keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
+  /* ---------- section heads ---------- */
+  .section{padding:96px 32px;max-width:1180px;margin:0 auto;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:24px;margin-bottom:48px;flex-wrap:wrap;
+  }
+  .section-eyebrow{
+    font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--tiffany-deep);margin-bottom:10px;display:block;
+  }
+  .section-head h2{
+    font-family:var(--serif);font-weight:500;font-size:38px;letter-spacing:-.01em;
+  }
+  .section-head p{color:var(--muted);font-size:15px;max-width:340px;}
+
+  /* ---------- product grid ---------- */
+  .grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+  }
+  .card{
+    background:var(--white);border:1px solid var(--line);border-radius:20px;
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:box-shadow .25s ease, transform .25s ease;
+  }
+  .card:hover{box-shadow:0 20px 40px rgba(20,23,26,.08);transform:translateY(-3px);}
+  .card-media{
+    position:relative;aspect-ratio:4/5;
+    background:var(--tiffany-tint);
+    overflow:hidden;
+  }
+  .card-media img{
+    width:100%;height:100%;object-fit:cover;object-position:top center;
+    display:block;
+  }
+  .stock-stamp{
+    position:absolute;top:14px;right:-30px;
+    background:var(--ink);color:var(--tiffany-tint);
+    font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:6px 36px;transform:rotate(35deg);
+  }
+  .stock-stamp.low{background:var(--tiffany-deep);}
+  .card-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .cat{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);}
+  .card-body h3{font-family:var(--serif);font-weight:500;font-size:19px;line-height:1.3;}
+  .meta{font-size:12.5px;color:var(--muted);}
+  .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:8px;}
+  .price{font-size:20px;font-weight:800;}
+  .buy-btn{
+    background:var(--tiffany);color:var(--tiffany-deep);
+    font-size:13px;font-weight:800;
+    padding:10px 18px;border-radius:999px;
+    display:flex;align-items:center;gap:6px;
+    transition:background .2s ease;
+  }
+  .buy-btn:hover{background:var(--tiffany-dark);color:var(--white);}
+
+  /* ---------- brand story ---------- */
+  .story{
+    background:var(--ink);color:var(--white);
+    border-radius:32px;
+    padding:72px 60px;
+    display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center;
+  }
+  .story-visual{
+    aspect-ratio:1/1;border-radius:24px;
+    background:linear-gradient(160deg,var(--tiffany) 0%,var(--tiffany-deep) 100%);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .story-visual span{
+    font-family:var(--serif);font-style:italic;font-size:22px;color:var(--white);opacity:.85;
+  }
+  .story-eyebrow{
+    font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--tiffany);margin-bottom:16px;display:block;
+  }
+  .story h2{
+    font-family:var(--serif);font-weight:500;font-size:32px;line-height:1.25;margin-bottom:20px;
+  }
+  .story p{font-size:15.5px;line-height:1.75;color:#CFD3D5;margin-bottom:14px;}
+  .story-stats{display:flex;gap:40px;margin-top:28px;}
+  .story-stats div b{font-family:var(--serif);font-size:28px;display:block;color:var(--tiffany);}
+  .story-stats div span{font-size:12.5px;color:#9DA3A6;}
+
+  /* ---------- values strip ---------- */
+  .values{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .value-card{
+    padding:28px 24px;border:1px solid var(--line);border-radius:18px;background:var(--white);
+  }
+  .value-card .vi{
+    width:42px;height:42px;border-radius:12px;background:var(--tiffany-tint);
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+    color:var(--tiffany-deep);font-family:var(--serif);font-weight:600;font-size:18px;
+  }
+  .value-card h4{font-size:15.5px;font-weight:700;margin-bottom:6px;}
+  .value-card p{font-size:13px;color:var(--muted);line-height:1.55;}
+
+  /* ---------- footer cta ---------- */
+  .final-cta{
+    text-align:center;padding:100px 32px;
+    background:var(--tiffany-tint);
+  }
+  .final-cta span.section-eyebrow{justify-content:center;display:inline-block;}
+  .final-cta h2{
+    font-family:var(--serif);font-weight:500;font-size:42px;max-width:640px;margin:0 auto 30px;line-height:1.15;
+  }
+  .final-cta h2 em{font-family:var(--script);font-style:normal;color:var(--tiffany-deep);}
+
+  footer{background:var(--ink);color:#B9BEC1;padding:64px 32px 32px;}
+  .footer-top{
+    max-width:1180px;margin:0 auto;
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
+    padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .footer-logo{font-family:var(--serif);font-size:22px;color:var(--white);margin-bottom:14px;}
+  .footer-logo em{font-style:italic;color:var(--tiffany);}
+  .footer-top p{font-size:13.5px;line-height:1.6;max-width:260px;}
+  .footer-col h5{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--white);margin-bottom:16px;}
+  .footer-col ul li{margin-bottom:10px;font-size:13.5px;}
+  .footer-col ul li a:hover{color:var(--tiffany);}
+  .footer-bottom{
+    max-width:1180px;margin:0 auto;padding-top:26px;
+    display:flex;justify-content:space-between;font-size:12.5px;color:#7B8083;flex-wrap:wrap;gap:12px;
+  }
+
+  /* ---------- responsive ---------- */
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+    .hero{grid-template-columns:1fr;padding-top:48px;}
+    .hero h1{font-size:42px;}
+    .hero-visual{order:-1;max-width:380px;margin:0 auto;}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .story{grid-template-columns:1fr;padding:44px 28px;border-radius:24px;}
+    .story-visual{max-width:280px;margin:0 auto;}
+    .values{grid-template-columns:repeat(2,1fr);}
+    .footer-top{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:560px){
+    .wrap,.section,.hero,.nav{padding-left:20px;padding-right:20px;}
+    .hero h1{font-size:34px;}
+    .grid{grid-template-columns:1fr;}
+    .values{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:1fr;}
+    .section-head h2{font-size:29px;}
+    .final-cta h2{font-size:30px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="utility-bar">Entrega para todo o Brasil · <strong>Peças limitadas</strong> · Cada modelo é uma edição exclusiva</div>
+
+<header>
+  <nav class="nav wrap" style="padding-left:0;padding-right:0;">
+    <a href="#" style="display:flex;align-items:center;">
+      <img src="logo.jpg" alt="Icônica Moda Fitness" style="height:56px;width:56px;object-fit:contain;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#colecao">Coleção</a></li>
+      <li><a href="#historia">Nossa história</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a href="https://wa.me/55SEUNUMEROAQUI" class="nav-cta">
+      Falar no WhatsApp
+    </a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="hero-eyebrow">Moda fitness premium</span>
+    <h1>Vista-se para treinar.<em>Sinta-se icônica.</em></h1>
+    <p>Modelagem que valoriza o corpo, tecido que acompanha o movimento e peças em estoque limitado — porque exclusividade também é uma forma de cuidado com você.</p>
+    <div class="hero-actions">
+      <a href="#colecao" class="btn-primary">Ver coleção</a>
+      <a href="#historia" class="btn-ghost">Conheça a marca →</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="cut"></div>
+    <div class="frame">
+      <div class="ph-icon">IC</div>
+      <div class="ph-label">foto do produto aqui</div>
+      <div class="ph-sub">substituir pelo arquivo com nome/SKU correspondente da planilha</div>
+    </div>
+    <div class="badge-float">
+      <div class="dot"></div>
+      <div>
+        <div class="t1">Suplex premium</div>
+        <div class="t2">poliéster + elastano</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-band">
+  <div class="marquee-track">
+    <span>Modelagem premium</span>
+    <span>Entrega para todo o Brasil</span>
+    <span>Estoque limitado por peça</span>
+    <span>Suplex e poliamida</span>
+    <span>Feito para ficar bonita</span>
+    <span>Modelagem premium</span>
+    <span>Entrega para todo o Brasil</span>
+    <span>Estoque limitado por peça</span>
+    <span>Suplex e poliamida</span>
+    <span>Feito para ficar bonita</span>
+  </div>
+</div>
+
+<section class="section" id="colecao">
+  <div class="section-head">
+    <div>
+      <span class="section-eyebrow">Coleção atual</span>
+      <h2>Conjuntos e macaquinhos</h2>
+    </div>
+    <p>9 peças, produção limitada. Estoque baixo é normal por aqui — é assim que garantimos exclusividade.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-media">
+        <div class="stock-stamp">última peça</div>
+        <img src="photos/IC001.png" alt="IC001">
+      </div>
+      <div class="card-body">
+        <span class="cat">Conjunto</span>
+        <h3>Conjunto Calça Iconica Flow</h3>
+        <span class="meta">Verde musgo · Tam. M</span>
+        <div class="price-row">
+          <span class="price">R$ 68</span>
+          <a href="#" class="buy-btn" data-sku="IC001">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-media">
+        <div class="stock-stamp">última peça</div>
+        <img src="photos/IC002.png" alt="IC002">
+      </div>
+      <div class="card-body">
+        <span class="cat">Conjunto</span>
+        <h3>Conjunto Calça Top Iconica Pulse</h3>
+        <span class="meta">Verde água · Tam. G</span>
+        <div class="price-row">
+          <span class="price">R$ 68</span>
+          <a href="#" class="buy-btn" data-sku="IC002">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-media">
+        <div class="stock-stamp">última peça</div>
+        <img src="photos/IC003.png" alt="IC003">
+      </div>
+      <div class="card-body">
+        <span class="cat">Conjunto</span>
+        <h3>Conjunto Calça Top Faixa na Cintura Up Top</h3>
+        <span class="meta">Lilás · Tam. G</span>
+        <div class="price-row">
+          <span class="price">R$ 64</span>
+          <a href="#" class="buy-btn" data-sku="IC003">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-media">
+        <div class="stock-stamp low">poucas peças</div>
+        <img src="photos/IC004.png" alt="IC004">
+      </div>
+      <div class="card-body">
+        <span class="cat">Conjunto</span>
+        <h3>Conjunto Short Duplo com Bolso e Top Iconica Strong</h3>
+        <span class="meta">Açaí, telha ou verde militar · Vários tam.</span>
+        <div class="price-row">
+          <span class="price">R$ 66</span>
+          <a href="#" class="buy-btn" data-sku="IC004">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-media">
+        <div class="stock-stamp">última peça</div>
+        <img src="photos/IC005.png" alt="IC005">
+      </div>
+      <div class="card-body">
+        <span class="cat">Conjunto</span>
+        <h3>Conjunto Short Duplo e Top Iconica Spirit</h3>
+        <span class="meta">Rosé · Tam. M</span>
+        <div class="price-row">
+          <span class="price">R$ 60</span>
+          <a href="#" class="buy-btn" data-sku="IC005">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-media">
+        <div class="stock-stamp">última peça</div>
+        <img src="photos/IC006.png" alt="IC006">
+      </div>
+      <div class="card-body">
+        <span class="cat">Conjunto</span>
+        <h3>Conjunto Short Duplo e Top Flex Up</h3>
+        <span class="meta">Verde militar · Tam. M</span>
+        <div class="price-row">
+          <span class="price">R$ 60</span>
+          <a href="#" class="buy-btn" data-sku="IC006">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-media">
+        <div class="stock-stamp low">poucas peças</div>
+        <img src="photos/IC007.png" alt="IC007">
+      </div>
+      <div class="card-body">
+        <span class="cat">Conjunto</span>
+        <h3>Conjunto Short e Top Flex Power</h3>
+        <span class="meta">Açaí/preto ou rosa/roxo · Tam. M</span>
+        <div class="price-row">
+          <span class="price">R$ 60</span>
+          <a href="#" class="buy-btn" data-sku="IC007">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-media">
+        <div class="stock-stamp">última peça</div>
+        <img src="photos/IC008.png" alt="IC008">
+      </div>
+      <div class="card-body">
+        <span class="cat">Macaquinho</span>
+        <h3>Macaquinho com Manga Wast</h3>
+        <span class="meta">Preto com detalhes brancos · Tam. M</span>
+        <div class="price-row">
+          <span class="price">R$ 50</span>
+          <a href="#" class="buy-btn" data-sku="IC008">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-media">
+        <div class="stock-stamp">última peça</div>
+        <img src="photos/IC009.png" alt="IC009">
+      </div>
+      <div class="card-body">
+        <span class="cat">Macaquinho</span>
+        <h3>Macaquinho Frente Única Export</h3>
+        <span class="meta">Verde água · Tam. M</span>
+        <div class="price-row">
+          <span class="price">R$ 50</span>
+          <a href="#" class="buy-btn" data-sku="IC009">Comprar</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="historia">
+  <div class="story">
+    <div class="story-visual"><span>foto de marca aqui</span></div>
+    <div>
+      <span class="story-eyebrow">Nossa história</span>
+      <h2>Moda fitness pensada para você se sentir bem em qualquer cenário.</h2>
+      <p>A Icônica nasceu para provar que treinar não significa abrir mão de se sentir bonita. Cada peça é escolhida a dedo, com modelagem que valoriza o corpo e tecido que acompanha o seu ritmo — na academia ou fora dela.</p>
+      <p>Trabalhamos com estoque propositalmente limitado: cada cor e tamanho vendido não volta a repetir exatamente igual. É a nossa forma de manter cada peça exclusiva.</p>
+      <div class="story-stats">
+        <div><b>9</b><span>modelos na coleção</span></div>
+        <div><b>100%</b><span>online, Brasil todo</span></div>
+        <div><b>1a peça</b><span>edição limitada por cor</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <span class="section-eyebrow">Por que a Icônica</span>
+      <h2>O que diferencia cada peça</h2>
+    </div>
+  </div>
+  <div class="values">
+    <div class="value-card">
+      <div class="vi">M</div>
+      <h4>Modelagem premium</h4>
+      <p>Corte pensado para valorizar o corpo, além da academia.</p>
+    </div>
+    <div class="value-card">
+      <div class="vi">T</div>
+      <h4>Suplex e poliamida</h4>
+      <p>Tecido premium com caimento elogiado por quem já vestiu.</p>
+    </div>
+    <div class="value-card">
+      <div class="vi">E</div>
+      <h4>Estoque exclusivo</h4>
+      <p>Cores e tamanhos limitados — cada peça vendida é única.</p>
+    </div>
+    <div class="value-card">
+      <div class="vi">B</div>
+      <h4>Entrega Brasil todo</h4>
+      <p>Compra 100% online, com cuidado na embalagem e no atendimento.</p>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="contato">
+  <span class="section-eyebrow">Fale com a gente</span>
+  <h2>Escolheu a sua peça? <em>Fala com a gente no WhatsApp.</em></h2>
+  <a href="https://wa.me/55SEUNUMEROAQUI" class="btn-primary">Chamar no WhatsApp</a>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="logo.jpg" alt="Icônica Moda Fitness" style="height:64px;width:64px;object-fit:contain;margin-bottom:14px;">
+      <p>Moda fitness premium, feita para você se sentir icônica dentro e fora da academia. Entrega para todo o Brasil.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="#colecao">Coleção</a></li>
+        <li><a href="#historia">Nossa história</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Atendimento</h5>
+      <ul>
+        <li><a href="https://wa.me/55SEUNUMEROAQUI">WhatsApp</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Informações</h5>
+      <ul>
+        <li>Vendas 100% online</li>
+        <li>Entrega para todo o Brasil</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Icônica Moda Fitness. Todos os direitos reservados.</span>
+    <span>Feito para quem quer se sentir icônica.</span>
+  </div>
+</footer>
+
+</body>
+</html>
